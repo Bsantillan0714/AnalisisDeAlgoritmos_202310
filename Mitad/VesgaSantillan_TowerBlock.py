@@ -123,7 +123,7 @@ class StackGame:
         return color_cycle[next_index]
 
 class QLearningAgent:
-    def __init__(self, game, alpha=0.05, gamma=0.0495, epsilon=0.045, epsilon_decay=0.999):
+    def __init__(self, game, alpha=0.05, gamma=0.495, epsilon=0.45, epsilon_decay=0.999):
         self.game = game
         self.q_table = np.random.uniform(low=-2, high=0, size=(MAX_SCORE + 1, 2))  # Inicialización de la tabla Q con valores aleatorios
         self.alpha = alpha  # Taza de aprendizaje.

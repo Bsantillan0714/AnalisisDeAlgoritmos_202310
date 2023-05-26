@@ -15,7 +15,7 @@ FPS = 60
 MAX_BLOCKS = 21
 GAME_OVER_DURATION = 5
 LAST_BLOCK_SIZE = 100
-LEARNING_EPISODES = 500  # Incrementado el número de episodios de aprendizaje
+LEARNING_EPISODES = 2000 # Incrementado el número de episodios de aprendizaje
 MAX_SCORE = LAST_BLOCK_SIZE*MAX_BLOCKS
 episode_data_to_save = []  # Informacion de cada episodio para guardar.
 # Colores

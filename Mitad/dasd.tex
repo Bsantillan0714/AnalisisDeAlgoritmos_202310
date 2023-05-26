@@ -1,0 +1,182 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% Plantilla para un artículo en LaTeX en español.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Qué tipo de documento estamos por comenzar:
+\documentclass[a4paper]{article}
+% Esto es para que el LaTeX sepa que el texto está en español:
+\usepackage[spanish]{babel}
+\selectlanguage{spanish}
+% Esto es para poder escribir acentos directamente:
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+
+
+%% Asigna un tamaño a la hoja y los márgenes
+\usepackage[a4paper,top=3cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
+
+%% Paquetes de la AMS
+\usepackage{amsmath, amsthm, amsfonts}
+%% Para añadir archivos con extensión pdf, jpg, png or tif
+\usepackage{graphicx}
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage[colorlinks=true, allcolors=blue]{hyperref}
+
+%% Primero escribimos el título
+\title{Proyecto Analisis Numerico }
+\author{Vesga Escobar Edwin & Santillan Gomez Bryan\\
+  \small Pontificia Universidad Javeriana\\
+  \small vesga.e@javeriana.edu.co\\
+  \small santillan-bryan@javeriana.edu.co\\
+  \small Bogota\\
+  \small
+}
+
+%% Después del "preámbulo", podemos empezar el documento
+
+\begin{document}
+%% Hay que decirle que incluya el título en el documento
+\maketitle
+
+%% Aquí podemos añadir un resumen del trabajo (o del artículo en su caso) 
+\begin{abstract}
+Este proyecto tiene como objetivo implementar el algoritmo  Q-learning en el juego  Tower Stacks. El entorno del juego se crea utilizando la biblioteca pygame para desarrollar agentes de aprendizaje automático que pueden jugar de forma autónoma. El agente determina la ubicación de los bloques en una pila en constante movimiento con el objetivo de maximizar la puntuación obtenida. Se ejecutan tres pruebas con diferentes configuraciones de parámetros para evaluar el rendimiento del agente. Los resultados obtenidos demuestran la capacidad del agente para aprender progresivamente y alcanzar puntuaciones más altas a medida que adquiere experiencia. Este proyecto demuestra la aplicabilidad del algoritmo  Q-learning en el juego  Tower Stacks y proporciona una base para futuras mejoras y extensiones.
+\end{abstract}
+
+%% Iniciamos "secciones" que servirán como subtítulos
+%% Nota que hay otra manera de añadir acentos
+\section{Introducci\'on}
+
+Este proyecto se enfoca en optimizar el juego  Tower Stacks implementando el algoritmo  Q-learning. Tower Stacks es un juego sobre apilar bloques de diferentes tamaños con precisión para formar una torre estable y obtener la máxima puntuación. Sin embargo, encontrar la mejor estrategia  para colocar  bloques y maximizar tu puntaje puede ser complicado. 
+ En este contexto, el  objetivo principal del proyecto es aplicar el algoritmo  Q-learning para desarrollar una inteligencia artificial que pueda aprender y tomar decisiones óptimas en el juego  Tower Stacks. Al explorar y aprovechar diferentes acciones, la IA intenta aprender la mejor estrategia para apilar  bloques y obtener la  puntuación más alta posible.  El alcance del proyecto incluye el diseño e implementación de una solución basada en Q-learning, así como la prueba y evaluación de los resultados obtenidos. 
+
+\section{Planteamiento del problema y Marco Teorico}
+ 
+ El objetivo de este proyecto es aplicar el algoritmo  Q-learning al juego  Tower Stacks. El objetivo del juego es apilar bloques con precisión para construir la torre  más alta posible. Los jugadores deben decidir cuándo y dónde colocar cada bloque, teniendo en cuenta el tamaño de los bloques y la estabilidad de la torre. 
+  El problema a resolver es encontrar la mejor estrategia  para colocar  bloques para maximizar la altura de tu torre. Este tipo de problemas se denominan problemas de decisión secuencial bajo incertidumbre. El enfoque  Q-learning, una técnica de aprendizaje por refuerzo, es adecuado para resolver tales problemas.  
+ El algoritmo  Q-learning se basa en el aprendizaje de una función de valor de acción llamada Q-table que asigna valores a las acciones en función del estado actual del juego. Durante el proceso de aprendizaje, los agentes interactúan con el entorno, realizan acciones y reciben recompensas. Usando las reglas de actualización de Q-learning, los agentes ajustan los valores en la tabla Q para mejorar gradualmente sus decisiones. 
+  En este proyecto se implementó el algoritmo  Q-learning en el juego  Tower Stacks utilizando el lenguaje de programación Python y la librería Pygame. El juego se muestra en una ventana de 800x600 píxeles con bloques que se mueven horizontalmente y el jugador tiene que decidir cuándo colocar los bloques en una torre.
+  
+\section{Diseño y desarrollo del proyecto}\
+La solución propuesta consiste en implementar el algoritmo  Q-learning en el juego  Tower Stacks utilizando la biblioteca pygame. El juego consiste en mover bloques, y los agentes deben decidir cuándo agregar nuevos bloques a la pila en función de su posición y tamaño actuales. El agente utiliza una tabla de valores Q para almacenar  estimaciones de recompensas para cada posible estado y acción. Se utiliza una política ávida de épsilon para equilibrar las acciones de exploración y  explotación  durante el aprendizaje.
+
+\subsection{Pseudocódigo del Algoritmo de Q-learning}\
+
+
+El pseudocódigo del algoritmo Q-Learning describe el proceso de aprendizaje del agente en el juego  Tower Stacks. Las tablas Q se utilizan para almacenar  valores de acción para cada estado del juego. En cada episodio, los agentes eligen acciones basadas en las políticas de Epsilon Greedy, realizan acciones, observan nuevas estadísticas y recompensas, y actualizan las tablas Q utilizando las reglas de actualización de Q-learning. Este proceso se repite hasta  el final del juego, disminuyendo gradualmente el valor de épsilon para fomentar la exploración temprana y la explotación posterior.
+
+\subsection{Diagrama del Juego}
+
+
+El diagrama de flujo del juego  Tower Stacks muestra la secuencia de acciones y decisiones para el jugador y el agente de Q-Learning. El juego comenzará mostrando una torre vacía y el primer bloque disponible. Los jugadores deciden quién coloca los bloques en la torre seleccionando la opción de jugador o Q-learning. Dependiendo de la opción que elija, se realizará la lógica adecuada para determinar las posiciones de los bloques y actualizar las torres. Este diagrama representa una interacción básica entre un jugador y un agente de Q-learning durante un juego.
+
+\subsection{Diagrama de la Opción "Jugador"}
+
+El diagrama de flujo de Opciones del jugador muestra el proceso de toma de decisiones del jugador en el juego  Tower Stacks. Los jugadores observan la altura actual de la torre  y las ubicaciones de bloques disponibles. Luego, el jugador decide manualmente dónde colocar el bloque dentro de la torre. Una vez colocado el bloque, se comprueba si se ha alcanzado la altura máxima permitida. Si no se ha alcanzado la altura máxima, el juego avanza al siguiente bloque disponible.
+
+\subsection{Diagrama de la Opción "Q-learning"}
+
+El diagrama de flujo de opciones de Q-Learning muestra el proceso de toma de decisiones de un agente de Q-Learning en el juego  Tower Stacks. El agente utiliza la tabla Q aprendida durante el proceso de formación para tomar las mejores decisiones. Los agentes monitorean el estado actual del juego, como las alturas de las torres y las ubicaciones de los bloques disponibles. Usando una política ávida de épsilon, el agente elige la mejor acción posible y coloca el bloque en la posición correcta. Luego verifique si se ha alcanzado la altura máxima permitida y continúe con el siguiente bloque disponible.  Estos diagramas de flujo representan visualmente la secuencia de acciones y decisiones tomadas por los jugadores y los agentes de Q-learning durante el juego  Tower Stacks.
+
+
+\section{Diseño y desarrollo del proyecto}
+
+es buenísimo para escribir ecuaciones. Para escribir variables o ecuaciones dentro del texto lo podemos poner entre signos de pesos y luego podemos seguir escribiendo,
+esto funciona si queremos escribir un símbolo como $\nabla$, $\pi$, $\beta$, $\Omega$, $\aleph$, etc.
+\begin{equation}
+\sum_{n=0}^\infty \frac{x^n}{n!}=e^x
+\end{equation}
+\begin{equation}
+\int_{0}^{1}dx=1
+\end{equation}
+\begin{equation}
+e^{i\pi}+1=0
+\end{equation}
+Si queremos citar al gran Maxwell, lo podemos hacer como en la ecuación \ref{eq:Maxwell}:
+\begin{equation}
+\nabla\times\mathbf{E}+\frac{\partial\mathbf{B}}{\partial t}=0\label{eq:Maxwell}
+\end{equation}
+
+A continuación se añade un ejemplo de un desarrollo:
+Con este preámbulo llevamos a cabo la siguiente transformación de los operadores $\hat{a}_{\ell}$
+
+\begin{equation}
+\hat{b}{m}^{\dagger}=\sum{\ell}U_{m}^{\ell}\hat{a}_{\ell}^{\dagger}
+\end{equation}
+
+donde $U_{m}^{\ell}$ es un elemento de la matriz unitaria $\mathbf{U}$.
+
+Calculamos ahora su hermitiano conjugado
+\begin{align}
+\hat{b}{m} & =\left(\sum{\ell}U_{m}^{\ell}\hat{a}_{\ell}^{\dagger}\right)^{\dagger}\label{eq:bm}\\
+ & =\sum_{\ell}\left(U_{m}^{\ell}\hat{a}_{\ell}^{\dagger}\right)^{\dagger}\nonumber \\
+ & =\sum_{\ell}\left(U_{m}^{\ell}\right)^{*}\hat{a}_{\ell}\nonumber \\
+ & =\sum_{\ell}\left(U^{-1}\right){\ell}^{m}\hat{a}{\ell},\label{eq:bSubM}
+\end{align}
+
+Ahora, para añadir una matriz:
+
+$$
+\begin{matrix} 
+a & b \\
+c & d 
+\end{matrix}
+\quad
+\begin{pmatrix} 
+a & b \\
+c & d 
+\end{pmatrix}
+\quad
+\begin{bmatrix} 
+a & b \\
+c & d 
+\end{bmatrix}
+\quad
+\begin{vmatrix} 
+a & b \\
+c & d 
+\end{vmatrix}
+\quad
+\begin{Vmatrix} 
+a & b \\
+c & d 
+\end{Vmatrix}
+$$
+%% Por ejemplo, el triple producto escalar:
+\begin{equation}
+\vec{A}\cdot(\vec{B}\times\vec{C})=\begin{vmatrix}
+A_x&A_y&A_z\\
+B_x&B_y&B_z\\
+C_x&C_y&C_z\\
+\end{vmatrix}
+\end{equation}
+
+\subsection{¿Cómo añadir listas?}
+
+Puedes añadir listas con numeración automática \dots
+
+\begin{enumerate}
+\item Como esta,
+\item y como esta.
+\end{enumerate}
+\dots o con puntitos \dots
+\begin{itemize}
+\item Como este,
+\item y como este.
+\end{itemize}
+
+\subsection{¿Cómo añado una lista de Citas y Referencias?}
+
+Puedes subir un archivo \verb|.bib| que contenga todas tus referencias en estilo BibTeX (puedes buscar la bibliografía de un libro en google añadiendo 'bibtex' al final), creado con JabRef. Luego podrás hacer citas así: \cite{Griffiths:1492149}.
+
+Puedes encontrar un \href{https://www.overleaf.com/help/97-how-to-include-a-bibliography-using-bibtex}{video tutorial aquí} para aprender más acerca de BibTeX.
+
+Espero que esta charla haya sido de tu ayuda. Puedes acceder a Overleaf en el siguiente link: \url{https://www.overleaf.com/}!
+
+\bibliographystyle{abbrv}
+\bibliography{sample}
+
+\end{document}
